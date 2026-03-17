@@ -200,4 +200,4 @@ From [`manifest.json`](/manifest.json):
 
 ## License
 
-No license file is included yet. Add a `LICENSE` if you plan to distribute this publicly.
+MIT. See [`LICENSE`](/LICENSE).
