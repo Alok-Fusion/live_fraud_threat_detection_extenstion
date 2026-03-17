@@ -1,0 +1,15 @@
+# Node
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dashboard server runtime logs
+server/logs.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Misc
+docs/tmp/

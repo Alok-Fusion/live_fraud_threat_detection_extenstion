@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Dashboard live feed screenshot placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060a16"/>
+      <stop offset="55%" stop-color="#0b1024"/>
+      <stop offset="100%" stop-color="#060a16"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <rect x="40" y="40" width="1120" height="620" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="40" y="40" width="260" height="620" rx="18" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)"/>
+
+  <text x="330" y="92" fill="#e2e8f0" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="900" font-size="30">
+    Dashboard Live Feed
+  </text>
+  <text x="330" y="124" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="600" font-size="14">
+    Placeholder. Replace this file with a real dashboard live feed screenshot.
+  </text>
+
+  <rect x="330" y="160" width="830" height="65" rx="14" fill="rgba(255,255,255,0.03)" stroke="url(#accent)" stroke-width="2"/>
+  <text x="360" y="202" fill="#fbbf24" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="900" font-size="13" letter-spacing="1">
+    Filters: All · Calls · Threats · Links · Reports
+  </text>
+
+  <rect x="330" y="245" width="830" height="415" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="360" y="285" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="800" font-size="13" letter-spacing="1">
+    Event Table (call_started / threat_update / url_detected / user_report)
+  </text>
+
+  <rect x="360" y="310" width="770" height="38" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="360" y="356" width="770" height="38" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <rect x="360" y="402" width="770" height="38" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <rect x="360" y="448" width="770" height="38" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)"/>
+</svg>
+

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Dashboard overview screenshot placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060a16"/>
+      <stop offset="55%" stop-color="#0b1024"/>
+      <stop offset="100%" stop-color="#060a16"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <rect x="40" y="40" width="1120" height="620" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="40" y="40" width="260" height="620" rx="18" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)"/>
+
+  <text x="330" y="92" fill="#e2e8f0" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="900" font-size="30">
+    Dashboard Overview
+  </text>
+  <text x="330" y="124" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="600" font-size="14">
+    Placeholder. Replace this file with a real dashboard overview screenshot.
+  </text>
+
+  <rect x="330" y="160" width="830" height="110" rx="14" fill="rgba(255,255,255,0.03)" stroke="url(#accent)" stroke-width="2"/>
+  <text x="360" y="205" fill="#a5b4fc" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="900" font-size="13" letter-spacing="1">
+    KPI CARDS
+  </text>
+
+  <rect x="330" y="295" width="540" height="220" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="360" y="335" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="800" font-size="13" letter-spacing="1">
+    Daily Scam Exposure
+  </text>
+
+  <rect x="900" y="295" width="260" height="220" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="930" y="335" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="800" font-size="13" letter-spacing="1">
+    Attack Categories
+  </text>
+
+  <rect x="330" y="540" width="830" height="120" rx="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="360" y="582" fill="#94a3b8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial" font-weight="800" font-size="13" letter-spacing="1">
+    Live Threat Feed
+  </text>
+</svg>
+
