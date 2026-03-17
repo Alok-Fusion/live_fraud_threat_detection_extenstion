@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Call Firewall — Cybersecurity Dashboard</title>
+  <meta name="description" content="Real-time scam and deepfake call monitoring dashboard. Track threat exposure, analyse behavioural patterns, and review call security analytics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+
+  <!-- ── Sidebar ─────────────────────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-shield">🛡</span>
+      <div>
+        <div class="sidebar-title">Live Call Firewall</div>
+        <div class="sidebar-sub">Threat Intelligence</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#section-overview" class="nav-item active" data-section="overview">
+        <span class="nav-icon">📊</span> Overview
+      </a>
+      <a href="#section-live-feed" class="nav-item" data-section="live-feed">
+        <span class="nav-icon">⚡</span> Live Feed
+        <span class="nav-badge" id="live-count">0</span>
+      </a>
+      <a href="#section-analytics" class="nav-item" data-section="analytics">
+        <span class="nav-icon">📈</span> Analytics
+      </a>
+      <a href="#section-threats" class="nav-item" data-section="threats">
+        <span class="nav-icon">🎯</span> Threat Map
+      </a>
+    </nav>
+
+    <div class="sidebar-status">
+      <div class="server-status">
+        <div class="server-dot" id="server-dot"></div>
+        <span id="server-label">Dashboard Online</span>
+      </div>
+      <div class="sidebar-log-count">
+        <span id="total-log-count">0</span> events logged
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Main Content ────────────────────────────────────────────────────── -->
+  <main class="main-content">
+
+    <!-- Header Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Security Overview</h1>
+        <div class="page-time" id="current-time">—</div>
+      </div>
+      <div class="topbar-right">
+        <div class="threat-ticker" id="threat-ticker">
+          <span class="ticker-dot"></span>
+          <span id="ticker-text">No active calls detected</span>
+        </div>
+        <button class="clear-btn" id="btn-clear-logs">🗑 Clear Logs</button>
+      </div>
+    </header>
+
+    <!-- ── KPI Cards ─────────────────────────────────────────────────────── -->
+    <section class="kpi-grid" id="section-overview">
+      <div class="kpi-card kpi-calls">
+        <div class="kpi-icon">📞</div>
+        <div class="kpi-body">
+          <div class="kpi-label">Total Calls</div>
+          <div class="kpi-value" id="kpi-total-calls">0</div>
+          <div class="kpi-sub">monitored sessions</div>
+        </div>
+        <div class="kpi-glow kpi-glow-blue"></div>
+      </div>
+
+      <div class="kpi-card kpi-risk">
+        <div class="kpi-icon">⚠️</div>
+        <div class="kpi-body">
+          <div class="kpi-label">High-Risk Calls</div>
+          <div class="kpi-value kpi-orange" id="kpi-high-risk">0</div>
+          <div class="kpi-sub">score ≥ 60%</div>
+        </div>
+        <div class="kpi-glow kpi-glow-orange"></div>
+      </div>
+
+      <div class="kpi-card kpi-critical">
+        <div class="kpi-icon">🔴</div>
+        <div class="kpi-body">
+          <div class="kpi-label">Critical Threats</div>
+          <div class="kpi-value kpi-red" id="kpi-critical">0</div>
+          <div class="kpi-sub">score ≥ 80%</div>
+        </div>
+        <div class="kpi-glow kpi-glow-red"></div>
+      </div>
+
+      <div class="kpi-card kpi-avg">
+        <div class="kpi-icon">📉</div>
+        <div class="kpi-body">
+          <div class="kpi-label">Avg Peak Score</div>
+          <div class="kpi-value" id="kpi-avg-score">0<span style="font-size:18px">%</span></div>
+          <div class="kpi-sub">across all calls</div>
+        </div>
+        <div class="kpi-glow kpi-glow-purple"></div>
+      </div>
+    </section>
+
+    <!-- ── Charts Row ────────────────────────────────────────────────────── -->
+    <section class="charts-grid" id="section-analytics">
+      <!-- Daily Threat Exposure -->
+      <div class="chart-card chart-wide">
+        <div class="chart-header">
+          <div class="chart-title">📆 Daily Scam Exposure</div>
+          <div class="chart-sub">Calls monitored + threat events per day (last 7 days)</div>
+        </div>
+        <div class="chart-body">
+          <canvas id="chart-daily" height="180"></canvas>
+        </div>
+      </div>
+
+      <!-- Threat Category Donut -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">🎯 Attack Categories</div>
+          <div class="chart-sub">Signal type breakdown</div>
+        </div>
+        <div class="chart-body chart-donut-body">
+          <canvas id="chart-categories" height="200"></canvas>
+        </div>
+      </div>
+
+      <!-- Platform Breakdown -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title">📡 Platform Risk</div>
+          <div class="chart-sub">Where threats were detected</div>
+        </div>
+        <div class="chart-body chart-donut-body">
+          <canvas id="chart-platforms" height="200"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Live Threat Feed ──────────────────────────────────────────────── -->
+    <section class="feed-section" id="section-live-feed">
+      <div class="feed-header">
+        <div>
+          <div class="feed-title">⚡ Live Threat Feed</div>
+          <div class="feed-sub">Real-time events from the extension</div>
+        </div>
+        <div class="feed-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="call_ended">Calls</button>
+          <button class="filter-btn" data-filter="threat_update">Threats</button>
+          <button class="filter-btn" data-filter="url_detected">Links</button>
+          <button class="filter-btn" data-filter="user_report">Reports</button>
+        </div>
+      </div>
+
+      <div class="feed-table-wrap">
+        <table class="feed-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Event</th>
+              <th>Platform</th>
+              <th>Threat Score</th>
+              <th>Label</th>
+              <th>Signals Detected</th>
+            </tr>
+          </thead>
+          <tbody id="feed-tbody">
+            <tr class="empty-row">
+              <td colspan="6">
+                <div class="empty-state">
+                  🛡 Waiting for call data from the extension...<br>
+                  <span>Install the extension and join a call to see live events here</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── AI Explanation Panel ──────────────────────────────────────────── -->
+    <section class="explain-section" id="explain-section" style="display:none">
+      <div class="explain-header">🤖 Latest AI Analysis</div>
+      <div class="explain-body" id="explain-body"></div>
+    </section>
+
+    <!-- ── Threat Map ───────────────────────────────────────────────────────── -->
+    <section class="map-section" id="section-threats">
+      <div class="map-header">
+        <div>
+          <div class="map-title">🎯 Threat Map</div>
+          <div class="map-sub">Hotspots by platform and attack category</div>
+        </div>
+      </div>
+
+      <div class="map-grid">
+        <div class="chart-card chart-wide">
+          <div class="chart-header">
+            <div class="chart-title">🌐 Heatmap</div>
+            <div class="chart-sub">Event frequency by platform and reason</div>
+          </div>
+          <div class="chart-body">
+            <div id="threat-heatmap" class="heatmap"></div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title">🔥 Hotspots</div>
+            <div class="chart-sub">Most frequent combinations</div>
+          </div>
+          <div class="chart-body">
+            <div id="threat-hotspots" class="hotspots"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Event Details Drawer ─────────────────────────────────────────────── -->
+  <div id="details-backdrop" class="details-backdrop" aria-hidden="true"></div>
+  <aside id="details-drawer" class="details-drawer" aria-label="Event details" tabindex="-1">
+    <div class="details-header">
+      <div class="details-heading">
+        <div class="details-title" id="details-title">Event Details</div>
+        <div class="details-sub" id="details-sub">Select an event from the feed to view details.</div>
+      </div>
+      <button class="details-close" id="details-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="details-body" id="details-body"></div>
+  </aside>
+ 
+  <script src="dashboard.js"></script>
+</body>
+</html>

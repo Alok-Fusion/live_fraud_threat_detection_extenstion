@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Call Firewall</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="brand">
+        <div class="brand-icon">🛡</div>
+        <div>
+          <div class="brand-name">Live Call Firewall</div>
+          <div class="brand-sub">AI Scam Protection</div>
+        </div>
+      </div>
+      <div class="status-pill" id="status-pill">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Idle</span>
+      </div>
+    </div>
+
+    <!-- Threat Score Section -->
+    <div class="threat-card" id="threat-card">
+      <div class="threat-gauge-wrap">
+        <svg class="threat-gauge" viewBox="0 0 120 120" width="120" height="120">
+          <defs>
+            <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#22c55e"/>
+              <stop offset="40%" style="stop-color:#f59e0b"/>
+              <stop offset="70%" style="stop-color:#f97316"/>
+              <stop offset="100%" style="stop-color:#ef4444"/>
+            </linearGradient>
+          </defs>
+          <!-- Background arc -->
+          <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.07)"
+            stroke-width="10" stroke-dasharray="251.3" stroke-dashoffset="62.8"
+            stroke-linecap="round" transform="rotate(-210 60 60)" />
+          <!-- Threat arc -->
+          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#gaugeGradient)"
+            stroke-width="10" stroke-dasharray="251.3" stroke-dashoffset="251.3"
+            stroke-linecap="round" transform="rotate(-210 60 60)"
+            id="gauge-arc" style="transition: stroke-dashoffset 0.8s ease" />
+          <!-- Center Text -->
+          <text x="60" y="57" text-anchor="middle" font-family="Inter" font-weight="800"
+            font-size="22" fill="#e2e8f0" id="gauge-text">—</text>
+          <text x="60" y="73" text-anchor="middle" font-family="Inter" font-weight="500"
+            font-size="10" fill="#64748b">THREAT</text>
+        </svg>
+      </div>
+
+      <div class="threat-info">
+        <div class="threat-level" id="threat-level">No Call Detected</div>
+        <div class="confidence-bar-wrap">
+          <div class="confidence-label">Confidence</div>
+          <div class="confidence-bar">
+            <div class="confidence-fill" id="confidence-fill" style="width:0%"></div>
+          </div>
+          <div class="confidence-pct" id="confidence-pct">—%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakdown Pills -->
+    <div class="breakdown-row" id="breakdown-row">
+      <div class="breakdown-pill" id="pill-behaviour">
+        <span class="pill-icon">🧠</span>
+        <span class="pill-label">Behaviour</span>
+        <span class="pill-val" id="bv-score">0</span>
+      </div>
+      <div class="breakdown-pill" id="pill-voice">
+        <span class="pill-icon">🔊</span>
+        <span class="pill-label">Voice</span>
+        <span class="pill-val" id="vo-score">0</span>
+      </div>
+      <div class="breakdown-pill" id="pill-context">
+        <span class="pill-icon">🌐</span>
+        <span class="pill-label">Context</span>
+        <span class="pill-val" id="cx-score">0</span>
+      </div>
+    </div>
+
+    <!-- Explainable AI Section -->
+    <div class="explain-card">
+      <div class="explain-title">🤖 AI Analysis</div>
+      <div class="explain-text" id="explain-text">
+        Start or join a video/audio call to begin real-time threat analysis.
+      </div>
+    </div>
+
+    <!-- URL Check -->
+    <div class="urlcheck-card">
+      <div class="urlcheck-title">🔎 URL Check</div>
+      <div class="urlcheck-sub">Paste a link (or multiple links) to scan for phishing/scam patterns.</div>
+      <div class="urlcheck-row">
+        <textarea id="urlcheck-input" class="urlcheck-input" rows="2" placeholder="Paste URL(s) here...&#10;Example: https://bit.ly/abc"></textarea>
+        <button class="urlcheck-btn" id="btn-urlcheck">Check</button>
+      </div>
+      <div class="urlcheck-result" id="urlcheck-result" style="display:none"></div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-row">
+      <button class="btn-primary" id="btn-dashboard">
+        📊 Open Dashboard
+      </button>
+      <button class="btn-secondary" id="btn-report">
+        🚨 Report
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <span>Live Call Firewall v1.0</span>
+      <span>·</span>
+      <span id="call-platform">—</span>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

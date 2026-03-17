@@ -1,0 +1,151 @@
+[
+  {
+    "id": "mmu10m1faw5iz",
+    "received_at": "2026-03-17T03:01:54.963Z",
+    "event": "call_started",
+    "platform": "Google Meet",
+    "timestamp": "2026-03-17T03:01:54.941Z"
+  },
+  {
+    "id": "mmu11ogy04p8b",
+    "received_at": "2026-03-17T03:02:44.770Z",
+    "event": "call_ended",
+    "platform": "Google Meet",
+    "duration_seconds": 50,
+    "peak_score": 2,
+    "peak_label": "Low Risk",
+    "reasons": [
+      "Urgency Language"
+    ],
+    "timestamp": "2026-03-17T03:02:44.765Z"
+  },
+  {
+    "id": "mmu17efvguio2",
+    "received_at": "2026-03-17T03:07:11.707Z",
+    "event": "user_report",
+    "score": 0,
+    "label": "Unknown",
+    "explanation": "",
+    "timestamp": "2026-03-17T03:07:11.693Z"
+  },
+  {
+    "id": "mmu20i9e0z19q",
+    "received_at": "2026-03-17T03:29:49.682Z",
+    "event": "call_started",
+    "platform": "Google Meet",
+    "timestamp": "2026-03-17T03:29:49.680Z"
+  },
+  {
+    "id": "mmu22acn3aody",
+    "received_at": "2026-03-17T03:31:12.743Z",
+    "event": "call_ended",
+    "platform": "Google Meet",
+    "duration_seconds": 83,
+    "peak_score": 0,
+    "peak_label": "Low Risk",
+    "reasons": [],
+    "timestamp": "2026-03-17T03:31:12.741Z"
+  },
+  {
+    "id": "mmu5egvhpywch",
+    "received_at": "2026-03-17T05:04:39.917Z",
+    "event": "call_started",
+    "platform": "Google Meet",
+    "timestamp": "2026-03-17T05:04:39.914Z"
+  },
+  {
+    "id": "mmu5fehqjk5pb",
+    "received_at": "2026-03-17T05:05:23.486Z",
+    "event": "call_ended",
+    "platform": "Google Meet",
+    "duration_seconds": 44,
+    "peak_score": 3,
+    "peak_label": "Low Risk",
+    "reasons": [
+      "Fear/Threat Framing"
+    ],
+    "timestamp": "2026-03-17T05:05:23.484Z"
+  },
+  {
+    "id": "mmu7gu83epmw6",
+    "received_at": "2026-03-17T06:02:29.763Z",
+    "event": "call_started",
+    "platform": "Google Meet",
+    "url": "https://meet.google.com/sgg-acqf-rjy?ijlm=1773727345758&hs=185",
+    "timestamp": "2026-03-17T06:02:29.763Z"
+  },
+  {
+    "id": "mmu7hb1e49x4h",
+    "received_at": "2026-03-17T06:02:51.554Z",
+    "event": "threat_update",
+    "platform": "Google Meet",
+    "score": 30,
+    "label": "Suspicious",
+    "confidence": 63,
+    "explanation": "This call is flagged because the caller exhibited: unnatural pitch stability suggesting synthetic voice; waveform smoothness anomaly (possible AI-generated audio); sudden energy spikes consistent with scripted aggression.",
+    "reasons": [
+      "Synthetic Voice Detected",
+      "Audio Waveform Anomaly"
+    ],
+    "breakdown": {
+      "behaviour": 0,
+      "voice": 30,
+      "context": 0,
+      "visual": 0
+    },
+    "timestamp": "2026-03-17T06:02:51.553Z"
+  },
+  {
+    "id": "mmu7hdc3igpec",
+    "received_at": "2026-03-17T06:02:54.531Z",
+    "event": "threat_update",
+    "platform": "Google Meet",
+    "score": 12,
+    "label": "Low Risk",
+    "confidence": 63,
+    "explanation": "This call is flagged because the caller exhibited: unnatural pitch stability suggesting synthetic voice.",
+    "reasons": [
+      "Synthetic Voice Detected"
+    ],
+    "breakdown": {
+      "behaviour": 0,
+      "voice": 12,
+      "context": 0,
+      "visual": 0
+    },
+    "timestamp": "2026-03-17T06:02:54.530Z"
+  },
+  {
+    "id": "mmu7hka1cxlvl",
+    "received_at": "2026-03-17T06:03:03.529Z",
+    "event": "threat_update",
+    "platform": "Google Meet",
+    "score": 30,
+    "label": "Suspicious",
+    "confidence": 63,
+    "explanation": "This call is flagged because the caller exhibited: unnatural pitch stability suggesting synthetic voice; waveform smoothness anomaly (possible AI-generated audio); sudden energy spikes consistent with scripted aggression.",
+    "reasons": [
+      "Synthetic Voice Detected",
+      "Audio Waveform Anomaly"
+    ],
+    "breakdown": {
+      "behaviour": 0,
+      "voice": 30,
+      "context": 0,
+      "visual": 0
+    },
+    "timestamp": "2026-03-17T06:03:03.529Z"
+  },
+  {
+    "id": "mmu7hqjuocbjq",
+    "received_at": "2026-03-17T06:03:11.658Z",
+    "event": "call_ended",
+    "platform": "Google Meet",
+    "url": "https://meet.google.com/sgg-acqf-rjy?ijlm=1773727345758&hs=185",
+    "duration_seconds": 42,
+    "peak_score": 0,
+    "peak_label": "Low Risk",
+    "reasons": [],
+    "timestamp": "2026-03-17T06:03:11.658Z"
+  }
+]
