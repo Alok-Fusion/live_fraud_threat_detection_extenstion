@@ -13,3 +13,5 @@ Thumbs.db
 
 # Misc
 docs/tmp/
+
+*.venv
